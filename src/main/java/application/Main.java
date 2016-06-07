@@ -1,5 +1,6 @@
 package application;
 
+import application.Models.Personne;
 import vue.Fenetre;
 
 /**
@@ -8,7 +9,8 @@ import vue.Fenetre;
 public class Main {
 
 	public static void main(String[] args) {
-		Fenetre f = new Fenetre();
+		Personne p = new Personne("admin","admin","password");
+		Fenetre f = new Fenetre(p);
 
 	}
 }
