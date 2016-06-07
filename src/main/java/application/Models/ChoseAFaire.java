@@ -1,12 +1,13 @@
 package application.Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by Max on 07/06/2016.
  */
-public class ChoseAFaire {
+public class ChoseAFaire{
 
     int importance; //de 1 à 5
     String designation;
@@ -79,6 +80,10 @@ public class ChoseAFaire {
 
     public void setDevEnCharge(Personne devEnCharge) {
         this.devEnCharge = devEnCharge;
+    }
+
+    public Iterator<ChoseAFaire> iterator(){
+        return this.lesSousTachesAFaire.iterator();
     }
 
     public String toString() {

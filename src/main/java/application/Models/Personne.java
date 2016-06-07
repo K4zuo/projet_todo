@@ -1,6 +1,7 @@
 package application.Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -9,20 +10,23 @@ import java.util.List;
 public class Personne {
     String nom;
     String prenom;
+    String password;
     List<ChoseAFaire> lChoseAFaire;
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom){
+    public Personne(String nom, String prenom,String password){
         this.nom = nom;
         this.prenom = prenom;
+        this.password = password;
         this.lChoseAFaire = new ArrayList<ChoseAFaire>();
     }
 
-    public Personne(String nom, String prenom, List<ChoseAFaire> lChoseAFaire) {
+    public Personne(String nom, String prenom,String password, List<ChoseAFaire> lChoseAFaire) {
         this.nom = nom;
         this.prenom = prenom;
+        this.password = password;
         this.lChoseAFaire = lChoseAFaire;
     }
 
@@ -50,7 +54,19 @@ public class Personne {
         this.lChoseAFaire = lChoseAFaire;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void addChoseAFaire(ChoseAFaire chose){
         this.lChoseAFaire.add(chose);
+    }
+
+    public Iterator<ChoseAFaire> iterator(){
+        return this.lChoseAFaire.iterator();
     }
 }
