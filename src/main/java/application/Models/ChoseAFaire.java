@@ -57,6 +57,22 @@ public class ChoseAFaire{
         this.lesSousTachesAFaire = lesSousTachesAFaire;
     }
 
+    public int getImportance() {
+        return importance;
+    }
+
+    public void setImportance(int importance) {
+        this.importance = importance;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
     public void setStatus(String newStatus){
         this.status = newStatus;
 
