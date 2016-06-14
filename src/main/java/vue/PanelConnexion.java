@@ -17,6 +17,7 @@ public class PanelConnexion extends JPanel {
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(0, 0, 10, 0);
 
         jtfLogin = new JTextField();
         jtfLogin.setPreferredSize(new Dimension(200,30));
