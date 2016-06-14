@@ -10,22 +10,25 @@ import java.util.List;
 public class Personne {
     String nom;
     String prenom;
+    String pseudo;
     String password;
     List<ChoseAFaire> lChoseAFaire;
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom,String password){
+    public Personne(String nom, String prenom,String pseudo,String password){
         this.nom = nom;
         this.prenom = prenom;
+        this.pseudo = pseudo;
         this.password = password;
         this.lChoseAFaire = new ArrayList<ChoseAFaire>();
     }
 
-    public Personne(String nom, String prenom,String password, List<ChoseAFaire> lChoseAFaire) {
+    public Personne(String nom, String prenom,String pseudo,String password, List<ChoseAFaire> lChoseAFaire) {
         this.nom = nom;
         this.prenom = prenom;
+        this.pseudo = pseudo;
         this.password = password;
         this.lChoseAFaire = lChoseAFaire;
     }
@@ -62,8 +65,20 @@ public class Personne {
         this.password = password;
     }
 
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
     public void addChoseAFaire(ChoseAFaire chose){
         this.lChoseAFaire.add(chose);
+    }
+
+    public void delChoseAFaire(ChoseAFaire chose){
+        this.lChoseAFaire.remove(chose);
     }
 
     public Iterator<ChoseAFaire> iterator(){
