@@ -11,7 +11,8 @@ import java.awt.*;
  */
 public class PanelConnexion extends JPanel {
 
-    private JTextField jtfLogin, jtfPassword;
+    private JTextField jtfLogin;
+    private JPasswordField jpfPassword;
 
     public PanelConnexion(Personne p, Fenetre f) {
 
@@ -22,8 +23,8 @@ public class PanelConnexion extends JPanel {
         jtfLogin = new JTextField();
         jtfLogin.setPreferredSize(new Dimension(200,30));
 
-        jtfPassword = new JTextField();
-        jtfPassword.setPreferredSize(new Dimension(200,30));
+        jpfPassword = new JPasswordField();
+        jpfPassword.setPreferredSize(new Dimension(200,30));
 
         JLabel jlbLogin = new JLabel("Login : ");
         JLabel jlbPassword = new JLabel("Password : ");
@@ -46,7 +47,7 @@ public class PanelConnexion extends JPanel {
 
         c.gridx = 3;
         c.gridy = 2;
-        add(jtfPassword, c);
+        add(jpfPassword, c);
 
         c.gridx = 1;
         c.gridy = 4;
@@ -58,7 +59,7 @@ public class PanelConnexion extends JPanel {
         return jtfLogin;
     }
 
-    public JTextField getJtfPassword() {
-        return jtfPassword;
+    public JPasswordField getJpfPassword() {
+        return jpfPassword;
     }
 }
