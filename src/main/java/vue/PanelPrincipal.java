@@ -23,7 +23,7 @@ public class PanelPrincipal extends JPanel {
     private JTree tree;
     private DefaultTreeModel model;
     private DefaultMutableTreeNode top;
-    private EcouteurTree et;
+    private EcouteurTree ecouteurTree;
     private JPopupMenu menu;
 
     public PanelPrincipal(Personne p, Fenetre f) {
@@ -37,8 +37,11 @@ public class PanelPrincipal extends JPanel {
         JScrollPane treeView = new JScrollPane(tree);
         add(treeView, BorderLayout.CENTER);
         menu = new JPopupMenu();
-        menu.add(new JMenuItem("Réserver cette tache"));
-        tree.addMouseListener(new EcouteurTree(this));
+        JMenuItem jmiReserver = new JMenuItem("Réserver cette tâche");
+        ecouteurTree = new EcouteurTree(this);
+        menu.add(jmiReserver);
+        tree.addMouseListener(ecouteurTree);
+        jmiReserver.addActionListener(ecouteurTree);
     }
 
     public JPopupMenu getMenuContextuel(){
