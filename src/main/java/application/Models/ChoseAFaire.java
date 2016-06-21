@@ -1,5 +1,6 @@
 package application.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,12 +8,12 @@ import java.util.List;
 /**
  * Created by Max on 07/06/2016.
  */
-public class ChoseAFaire{
+public class ChoseAFaire implements Serializable{
 
     int importance; //de 1 à 5
     String designation;
     boolean choseFaite;
-    String status;
+    int status; // 1 = non commencé 2 = en cours  3 = terminée
     List<ChoseAFaire> lesSousTachesAFaire;
     Personne devEnCharge;
     public ChoseAFaire() {
@@ -24,16 +25,18 @@ public class ChoseAFaire{
 
     }
 
-    public ChoseAFaire(String libelle, int priorite) {
+    public ChoseAFaire(String libelle, int priorite, int status) {
         this.importance = priorite;
+        this.status = status;
         this.designation = libelle;
         this.choseFaite = false;
         this.lesSousTachesAFaire = new ArrayList<ChoseAFaire>();
         this.devEnCharge = null;
     }
 
-    public ChoseAFaire(String libelle, int priorite,Personne dev) {
+    public ChoseAFaire(String libelle, int priorite,int status,Personne dev) {
         this.importance = priorite;
+        this.status = status;
         this.designation = libelle;
         this.choseFaite = false;
         this.lesSousTachesAFaire = new ArrayList<ChoseAFaire>();
@@ -41,8 +44,9 @@ public class ChoseAFaire{
         this.devEnCharge.addChoseAFaire(this);
     }
 
-    public ChoseAFaire(String libelle, int priorite, List<ChoseAFaire> lChoseAFaire, Personne dev) {
+    public ChoseAFaire(String libelle, int priorite, int status,List<ChoseAFaire> lChoseAFaire, Personne dev) {
         this.importance = priorite;
+        this.status = status;
         this.designation = libelle;
         this.choseFaite = false;
         this.lesSousTachesAFaire = lChoseAFaire;
@@ -73,16 +77,16 @@ public class ChoseAFaire{
         this.designation = designation;
     }
 
-    public void setStatus(String newStatus){
+    public void setStatus(int newStatus){
         this.status = newStatus;
 
-        if (this.status.equals("terminé")){
+        if (this.status == 3){
             this.choseFaite = true;
         }
 
     }
 
-    public String getStatus(){
+    public int getStatus(){
         return this.status;
     }
 

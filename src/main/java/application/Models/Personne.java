@@ -1,5 +1,7 @@
 package application.Models;
 
+import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,29 +9,32 @@ import java.util.List;
 /**
  * Created by Max on 07/06/2016.
  */
-public class Personne {
+public class Personne implements Serializable{
     String nom;
     String prenom;
     String pseudo;
     String password;
+    Color couleur;
     List<ChoseAFaire> lChoseAFaire;
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom,String pseudo,String password){
+    public Personne(String nom, String prenom,String pseudo,String password, Color couleur){
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.password = password;
+        this.couleur = couleur;
         this.lChoseAFaire = new ArrayList<ChoseAFaire>();
     }
 
-    public Personne(String nom, String prenom,String pseudo,String password, List<ChoseAFaire> lChoseAFaire) {
+    public Personne(String nom, String prenom,String pseudo,String password, Color couleur, List<ChoseAFaire> lChoseAFaire) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.password = password;
+        this.couleur = couleur;
         this.lChoseAFaire = lChoseAFaire;
     }
 
@@ -67,6 +72,14 @@ public class Personne {
 
     public String getPseudo() {
         return pseudo;
+    }
+
+    public Color getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(Color couleur) {
+        this.couleur = couleur;
     }
 
     public void setPseudo(String pseudo) {
