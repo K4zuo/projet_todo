@@ -2,10 +2,14 @@ package vue;
 
 import application.Models.ChoseAFaire;
 import application.Models.Personne;
+import controleur.EcouteurTree;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -17,16 +21,32 @@ public class PanelPrincipal extends JPanel {
     private Personne p;
     private Fenetre f;
     private JTree tree;
+    private DefaultTreeModel model;
+    private DefaultMutableTreeNode top;
+    private EcouteurTree et;
+    private JPopupMenu menu;
 
     public PanelPrincipal(Personne p, Fenetre f) {
         this.p = p;
         this.f = f;
         setLayout(new BorderLayout());
-        DefaultMutableTreeNode top = new DefaultMutableTreeNode("Liste des tâches");
-        tree = new JTree(top);
+        top = new DefaultMutableTreeNode("Liste des tâches");
+        model = new DefaultTreeModel(top);
+        tree = new JTree(model);
         createNodes(top);
         JScrollPane treeView = new JScrollPane(tree);
         add(treeView, BorderLayout.CENTER);
+        menu = new JPopupMenu();
+        menu.add(new JMenuItem("Réserver cette tache"));
+        tree.addMouseListener(new EcouteurTree(this));
+    }
+
+    public JPopupMenu getMenuContextuel(){
+        return menu;
+    }
+
+    public JTree getTree(){
+        return tree;
     }
 
     private void createNodes(DefaultMutableTreeNode top) {

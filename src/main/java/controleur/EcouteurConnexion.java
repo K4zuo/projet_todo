@@ -23,7 +23,7 @@ public class EcouteurConnexion implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if(p.getNom().equals(pc.getJtfLogin().getText()) && p.getPassword().equals(pc.getJtfPassword().getText())) {
+        if(p.getNom().equals(pc.getJtfLogin().getText()) && p.getPassword().equals(pc.getJpfPassword().getText())) {
             f.setContentPane(new PanelPrincipal(p, f));
             f.redimensionnerFenetre(800, 600);
             f.paintComponents(f.getContentPane().getGraphics());
