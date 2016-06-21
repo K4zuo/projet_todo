@@ -1,6 +1,7 @@
 package serveur;
 
 import org.jdom2.input.SAXBuilder;
+
 import java.io.File;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -26,7 +27,7 @@ public class ServeurMain {
 			Socket branchementClient = leServeur.accept();
 			System.out.println("Nouveau client.");
 //			TODO Instancier un nouveau thread qui traite les informations demandées par le client
-			CommClient cc = new CommClient(branchementClient);
+			ThreadClient cc = new ThreadClient(branchementClient);
 			cc.start();
 		} while(true);//TODO Remplacer true avec continuer
 //		leServeur.close();

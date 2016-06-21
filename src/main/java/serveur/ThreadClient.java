@@ -6,12 +6,12 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
-class CommClient extends Thread {
+class ThreadClient extends Thread {
 	protected Socket branchementAvecLeClient;
 	protected BufferedReader ecouteurDuCombine;
 	protected PrintStream microphoneDuCombine;
 
-	public CommClient(Socket uneCommunicationAvecUnClient) {
+	public ThreadClient(Socket uneCommunicationAvecUnClient) {
 		branchementAvecLeClient = uneCommunicationAvecUnClient;
 		try {
 			ecouteurDuCombine = new BufferedReader(new InputStreamReader(branchementAvecLeClient.getInputStream()));
