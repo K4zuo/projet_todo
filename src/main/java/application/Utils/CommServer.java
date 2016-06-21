@@ -18,7 +18,7 @@ public class CommServer implements Runnable {
     ChoseAFaire choseATransmette;
     String operation; // nouveau projet, choisir projet, ajout d'une sous chose a faire, maj status
 
-    public CommServer(ChoseAFaire chose, String operation){
+    public CommServer(String operation, ChoseAFaire chose){
         this.choseATransmette = chose;
         this.operation = operation;
     }
