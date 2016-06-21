@@ -1,5 +1,8 @@
 package vue;
 
+import application.Models.Personne;
+import controleur.EcouteurConnexion;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,15 +11,18 @@ import java.awt.*;
  */
 public class PanelConnexion extends JPanel {
 
-    public PanelConnexion() {
+    private JTextField jtfLogin, jtfPassword;
+
+    public PanelConnexion(Personne p, Fenetre f) {
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(0, 0, 10, 0);
 
-        JTextField jtfLogin = new JTextField();
+        jtfLogin = new JTextField();
         jtfLogin.setPreferredSize(new Dimension(200,30));
 
-        JTextField jtfPassword = new JTextField();
+        jtfPassword = new JTextField();
         jtfPassword.setPreferredSize(new Dimension(200,30));
 
         JLabel jlbLogin = new JLabel("Login : ");
@@ -24,6 +30,7 @@ public class PanelConnexion extends JPanel {
 
         JButton jbtConnexion = new JButton("Se connecter");
         jbtConnexion.setPreferredSize(new Dimension(265,30));
+        jbtConnexion.addActionListener(new EcouteurConnexion(p, f, this));
 
         c.gridx = 1;
         c.gridy = 1;
@@ -45,5 +52,13 @@ public class PanelConnexion extends JPanel {
         c.gridy = 4;
         c.gridwidth = 3;
         add(jbtConnexion, c);
+    }
+
+    public JTextField getJtfLogin() {
+        return jtfLogin;
+    }
+
+    public JTextField getJtfPassword() {
+        return jtfPassword;
     }
 }

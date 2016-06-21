@@ -1,5 +1,7 @@
 package vue;
 
+import application.Models.Personne;
+
 import javax.swing.*;
 
 /**
@@ -7,12 +9,22 @@ import javax.swing.*;
  */
 public class Fenetre extends JFrame {
 
-    public Fenetre() {
+    private BarreDeMenus barreDeMenus;
+
+    public Fenetre(Personne p) {
         setTitle("ToDo");
-        setSize(800,600);
+        setSize(300,200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new PanelConnexion());
+        setContentPane(new PanelConnexion(p, this));
+        setJMenuBar(barreDeMenus = new BarreDeMenus(this));
         setVisible(true);
     }
+
+    public void redimensionnerFenetre(int x, int y) {
+        setSize(x, y);
+        setLocationRelativeTo(null);
+        this.getContentPane().repaint();
+    }
+
 }
