@@ -10,10 +10,8 @@ public class ServeurMain {
 	static org.jdom2.Document serveurPref;
 	public final static int PortParDefaut = 3000;
 	private static int port;
-	private static boolean continuer;
 
 	public static void main(String[] args) throws Exception {
-		continuer = true;
 		serveurPref = new SAXBuilder().build(new File("serveur_preferences.xml"));
 		int portPref;
 		try {
@@ -26,14 +24,8 @@ public class ServeurMain {
 		do {
 			Socket branchementClient = leServeur.accept();
 			System.out.println("Nouveau client.");
-//			TODO Instancier un nouveau thread qui traite les informations demandées par le client
 			ThreadClient cc = new ThreadClient(branchementClient);
 			cc.start();
-		} while(true);//TODO Remplacer true avec continuer
-//		leServeur.close();
-	}
-
-	public static void setContinuer(boolean continuer) {
-		ServeurMain.continuer = continuer;
+		} while(true);
 	}
 }

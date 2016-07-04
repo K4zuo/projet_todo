@@ -15,26 +15,25 @@ public class Personne implements Serializable{
     String pseudo;
     String password;
     Color couleur;
-    List<ChoseAFaire> lChoseAFaire;
+    List<ChoseAFaire> lChoseAFaire = new ArrayList<>();
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom,String pseudo,String password, Color couleur){
+    public Personne(String nom, String prenom, String pseudo, String password){
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.password = password;
+    }
+
+    public Personne(String nom, String prenom,String pseudo,String password, Color couleur){
+        this(nom, prenom, pseudo, password);
         this.couleur = couleur;
-        this.lChoseAFaire = new ArrayList<ChoseAFaire>();
     }
 
     public Personne(String nom, String prenom,String pseudo,String password, Color couleur, List<ChoseAFaire> lChoseAFaire) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.pseudo = pseudo;
-        this.password = password;
-        this.couleur = couleur;
+        this(nom, prenom, pseudo, password, couleur);
         this.lChoseAFaire = lChoseAFaire;
     }
 
